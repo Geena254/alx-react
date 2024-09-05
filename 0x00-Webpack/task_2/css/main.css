@@ -6,7 +6,7 @@
 }
 
 #count {
-    display: inline;
-    font-weight: bold;
-    margin: 0;
+    display: inline-block;
+    margin-left: 10px; /* Adjust the space between the button and text */
+    font-weight: bold; /* Make the text bold */
 }
