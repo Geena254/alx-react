@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, css } from 'aphrodite';
+import PropTypes from 'prop-types';
 
-function Login() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [enableSubmit, setEnableSubmit] = useState(false);
+
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    setIsLoggedIn(true);
+    props.logIn(e.target.elements.email.value, e.target.elements.password.value);
   };
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -57,5 +58,8 @@ const loginStyles = StyleSheet.create({
 	}
 })
 
+Login.propTypes = {
+  logIn: PropTypes.func
+};
 
 export default Login;
