@@ -7,7 +7,15 @@ import uiReducer, { initialState } from "./reducers/uiReducer";
 import { Map } from "immutable";
 import thunk from "redux-thunk";
 
-const store = createStore(uiReducer, Map(initialState), applyMiddleware(thunk));
+// const store = createStore(uiReducer, Map(initialState), applyMiddleware(thunk));
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  uiReducer,
+  Map(initialState),
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <React.StrictMode>
